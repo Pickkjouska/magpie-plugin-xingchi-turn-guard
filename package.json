@@ -1,0 +1,40 @@
+{
+  "name": "magpie-plugin-xingchi-turn-guard",
+  "version": "0.3.2",
+  "description": "Magpie gateway protection for Xingchi turn limits and oversized Responses context",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Pickkjouska/magpie-plugin-xingchi-turn-guard.git"
+  },
+  "homepage": "https://github.com/Pickkjouska/magpie-plugin-xingchi-turn-guard#readme",
+  "type": "module",
+  "files": [
+    "gateway.hooks.mjs",
+    "history.mjs",
+    "context-compression.mjs",
+    "context-summary.mjs",
+    "turn-limits.mjs",
+    "README.md"
+  ],
+  "keywords": ["magpie", "magpie-plugin", "xingchi", "gateway-hooks"],
+  "magpie": {
+    "name": "星驰轮数保护",
+    "summary": {
+      "en": "Learns Xingchi turn limits and packs older Responses history before it is sent.",
+      "zh": "学习星驰轮数上限，并在网关发送前打包较早的 Responses 历史。"
+    },
+    "hooks": "./gateway.hooks.mjs",
+    "options": {
+      "providerId": "",
+      "baseUrl": "https://api.xingchiapi.com/v1",
+      "historyPacking": true,
+      "maxTurns": 15,
+      "maxModelTurns": 15,
+      "contextCompression": true,
+      "codexCompaction": false,
+      "maxInputBytes": 196608,
+      "summaryMaxChars": 16000,
+      "recentModelTurns": 6
+    }
+  }
+}
